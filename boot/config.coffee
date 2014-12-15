@@ -15,6 +15,7 @@ validator = require 'express-validator'
 autoload = require '../lib/autoload'
 session = require 'express-session'
 dotenv = require 'dotenv'
+
 # Configuration
 module.exports = (app) ->
 	# Load helper functions
@@ -37,8 +38,9 @@ module.exports = (app) ->
 	app.use bodyParser.urlencoded {extended: true} 
 	
 	# Create a Parse (Kaiseki) object
-	app.kaiseki = new Kaiseki process.env.PARSE_APP_ID, process.env.PARSE_REST_KEY
-	app.kaiseki.masterKey = process.env.PARSE_MASTER_KEY
+	app.kaiseki = new Kaiseki process.env.PARSE_APP_ID_TEST, 
+	process.env.PARSE_REST_KEY_TEST
+	app.kaiseki.masterKey = process.env.PARSE_MASTER_KEY_TEST
 
 	# Development settings
 	if (env == 'development')
@@ -58,9 +60,9 @@ module.exports = (app) ->
 	
 	#debug crap
 	console.log 'ENV VARS ->'
-	console.log ("> PARSE_APP_ID=" + process.env.PARSE_APP_ID)
-	console.log ("> PARSE_REST_KEY=" + process.env.PARSE_REST_KEY)
-	console.log ("> PARSE_MASTER_KEY=" + process.env.PARSE_MASTER_KEY)
+	console.log ("> PARSE_APP_ID_TEST=" + process.env.PARSE_APP_ID_TEST)
+	console.log ("> PARSE_REST_KEY_TEST=" + process.env.PARSE_REST_KEY_TEST)
+	console.log ("> PARSE_MASTER_KEY_TEST=" + process.env.PARSE_MASTER_KEY_TEST)
 	console.log ("> SECRET=" + process.env.SECRET)
 	console.log '-------------------------------'
 			

@@ -1,8 +1,4 @@
 node_modules
-*.log
-bash
-resetNode.sh
-.dropbox
+.dropbox*
 desktop.ini
 .env
-notes.txt
