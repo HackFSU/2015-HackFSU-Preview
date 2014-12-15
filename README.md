@@ -1,10 +1,16 @@
-HackFSU Console
-===============
+HackFSU Web Preview
+===================
+
+#### Description
+This will be the preview landing page for HackFSU, to be hosted at hackfsu.com. It will be very minimal and is to have an email submission for a notification of when the site will be ready. 
 
 #### Setup and Deployment Instructions
 
 ###### Prerequisites: 
-Install Node.JS, NPM, and Heroku Toolbelt (https://toolbelt.heroku.com/)
+
+1. Install node.js, npm
+2. `process.env` is needed to connect to Parse (gitignored for security)
+
 
 ###### To setup and run project:
 
@@ -12,12 +18,6 @@ Install Node.JS, NPM, and Heroku Toolbelt (https://toolbelt.heroku.com/)
 2. `cd path/to/project`
 3. `npm install`
 4. `npm start`
-
-###### To deploy to Heroku:
-
-1. Have Heroku toolbelt installed and configured
-2. `git remote add heroku git@heroku.com:hackfsu-console.git` 
-3. `git push heroku master`
 
 #### Project Structure
 
