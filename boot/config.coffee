@@ -4,15 +4,9 @@
 # Author: Trevor Helms
 ###
 
-# Parse API Keys (HackFSU)
-# PARSE_APP_ID = ''
-# PARSE_MASTER_KEY = ''
-# PARSE_REST_KEY = ''
+# Parse API Keys (HackFSU) - in env
+# Parse API Keys (HackFSU-test) - in env
 
-# Parse API Keys (HackFSU-test)
-# PARSE_APP_ID = ''
-# PARSE_MASTER_KEY = ''
-# PARSE_REST_KEY = ''
 
 # Module dependencies
 Kaiseki = require 'kaiseki'
@@ -24,8 +18,8 @@ session = require 'express-session'
 # Configuration
 module.exports = (app) ->
 	# Create a Parse (Kaiseki) object
-	app.kaiseki = new Kaiseki PARSE_APP_ID, PARSE_REST_KEY
-	app.kaiseki.masterKey = PARSE_MASTER_KEY
+	app.kaiseki = new Kaiseki process.env.PARSE_APP_ID, process.env.PARSE_REST_KEY
+	app.kaiseki.masterKey = process.env.PARSE_MASTER_KEY
 
 	# Load helper functions
 	app.locals.helpers = require __dirname + '/../app/helpers'

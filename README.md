@@ -40,3 +40,7 @@ This will be the preview landing page for HackFSU, to be hosted at hackfsu.com. 
 #### Pages
 * `/` Preview homepage
 * `/confirmation` A confirmation page for the email submission
+
+#### Notes
+* Someone remove that thing I was talking about plz -Jared
+* Other pages in /views and /controllers not being used are from hackfsu-console. They are just for reference and should be removed at the end.
