@@ -10,11 +10,42 @@ module.exports = (app) ->
 	class app.PreviewController
 		# Index
 		@index = (req, res) ->
-			res.render 'email/new',
-				title: 'Preview'
+			res.render 'preview/index',
+				title: ''
 				
 		
 		# Confirmation
 		@confirmation = (req, res) ->
-			res.render 'email/new',
-				title: 'Preview Email Confirmation'
+			isValidInput = false
+			if req.body.email?
+				isValidInput = true
+			
+			data =
+				email: req.body.email
+			
+			if isValidInput
+				# check parse
+				app.kaiseki.createObject "PreviewSubscription", data,
+					(error, response, body, success) ->
+						# log the result
+						msgs = []
+						
+						if success
+							msgs.push("PARSE - PREVIEW SUBSCRIPTION ADDED!")																							
+						else
+							msgs.push("PARSE - PREVIEW SUBSCRIPTION FAILED!")
+							
+						
+						msgs.push("> error: " + JSON.stringify error)
+						msgs.push("> body: " + JSON.stringify body)
+						for line in msgs 
+							console.log(line)
+						
+						# res.redirect '/users/signin'
+				
+			else
+				console.log 'Invalid input'
+				# res.redirect '/users/signin'
+			
+			res.render 'preview/confirmation',
+				title: 'Email Confirmation'

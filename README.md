@@ -41,6 +41,15 @@ This will be the preview landing page for HackFSU, to be hosted at hackfsu.com. 
 * `/` Preview homepage
 * `/confirmation` A confirmation page for the email submission
 
+#### Parse
+* We are using the kaiseki API - https://github.com/shiki/kaiseki
+* currently using HackFSU-test
+* PreviewSubscription
+	Contains the email for the preview email subscription
+* TODO - keep track of this stuff here
+
 #### Notes
 * Someone remove that thing I was talking about plz -Jared
 * Other pages in /views and /controllers not being used are from hackfsu-console. They are just for reference and should be removed at the end.
+
+
