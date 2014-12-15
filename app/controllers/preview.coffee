@@ -17,6 +17,7 @@ module.exports = (app) ->
 		# Confirmation
 		@confirmation = (req, res) ->
 			isValidInput = false
+			result = false
 			if req.body.email?
 				isValidInput = true
 			
@@ -32,6 +33,7 @@ module.exports = (app) ->
 						
 						if success
 							msgs.push("PARSE - PREVIEW SUBSCRIPTION ADDED!")																							
+							result = true
 						else
 							msgs.push("PARSE - PREVIEW SUBSCRIPTION FAILED!")
 							
@@ -49,3 +51,5 @@ module.exports = (app) ->
 			
 			res.render 'preview/confirmation',
 				title: 'Email Confirmation'
+				pageData:
+					result: result

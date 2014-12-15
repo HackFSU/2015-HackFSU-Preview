@@ -4,5 +4,5 @@ bash
 resetNode.sh
 .dropbox
 desktop.ini
-process.env
+.env
 notes.txt

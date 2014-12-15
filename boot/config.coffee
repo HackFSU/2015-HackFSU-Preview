@@ -14,18 +14,17 @@ bodyParser = require 'body-parser'
 validator = require 'express-validator'
 autoload = require '../lib/autoload'
 session = require 'express-session'
-
+dotenv = require 'dotenv'
 # Configuration
 module.exports = (app) ->
-	# Create a Parse (Kaiseki) object
-	app.kaiseki = new Kaiseki process.env.PARSE_APP_ID, process.env.PARSE_REST_KEY
-	app.kaiseki.masterKey = process.env.PARSE_MASTER_KEY
-
 	# Load helper functions
 	app.locals.helpers = require __dirname + '/../app/helpers'
 
 	# Autoload controllers
 	autoload 'app/controllers', app
+
+	# Load env
+	dotenv.load()
 
 	# Configure app settings
 	env = process.env.NODE_ENV || 'development'
@@ -37,6 +36,9 @@ module.exports = (app) ->
 	app.use bodyParser.json()
 	app.use bodyParser.urlencoded {extended: true} 
 	
+	# Create a Parse (Kaiseki) object
+	app.kaiseki = new Kaiseki process.env.PARSE_APP_ID, process.env.PARSE_REST_KEY
+	app.kaiseki.masterKey = process.env.PARSE_MASTER_KEY
 
 	# Development settings
 	if (env == 'development')
@@ -45,7 +47,7 @@ module.exports = (app) ->
 	#Session settings
 	app.use session 
 		name: 'connect.sid'
-		secret: 'super secret secrety secret' #TODO: make this encoded
+		secret: process.env.SECRET + ' '
 		cookie:
 			maxAge: 864000		#10 days
 		saveUninitialized: false
@@ -53,6 +55,12 @@ module.exports = (app) ->
 	app.use (req,res,next) ->
 		res.locals.session = req.session;
 		next();
-		
-		
+	
+	#debug crap
+	console.log 'ENV VARS ->'
+	console.log ("> PARSE_APP_ID=" + process.env.PARSE_APP_ID)
+	console.log ("> PARSE_REST_KEY=" + process.env.PARSE_REST_KEY)
+	console.log ("> PARSE_MASTER_KEY=" + process.env.PARSE_MASTER_KEY)
+	console.log ("> SECRET=" + process.env.SECRET)
+	console.log '-------------------------------'
 			
