@@ -11,10 +11,10 @@ module.exports = (app) ->
 		# Index
 		@index = (req, res) ->
 			res.render 'email/new',
-				title: 'Shoot an Email'
+				title: 'Preview'
 				
 		
 		# Confirmation
 		@confirmation = (req, res) ->
 			res.render 'email/new',
-				title: 'Shoot an Email'
+				title: 'Preview Email Confirmation'
