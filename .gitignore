@@ -1,0 +1,7 @@
+node_modules
+*.log
+bash
+resetNode.sh
+.dropbox
+desktop.ini
+process.env
