@@ -36,4 +36,7 @@ This will be the preview landing page for HackFSU, to be hosted at hackfsu.com. 
     TODO: Move CSS and JS to `app/assets/` and create asset pipeline
 * `package.json` Contains general project information and npm dependencies.
 * `server.js` Loads the coffeescript module and boot scripts (probably will never need to be changed)
-* 
+
+#### Pages
+* `/` Preview homepage
+* `/confirmation` A confirmation page for the email submission

@@ -5,14 +5,14 @@
 ###
 
 # Parse API Keys (HackFSU)
-# PARSE_APP_ID = '4NDzxeC8KxdZi4Kyok7QfGhtS27GuHfntNh9ZSfL'
-# PARSE_MASTER_KEY = 'k5K40usqxTLInr0OkDpyanoFO6ChaDkQsZTfCwRu'
-# PARSE_REST_KEY = 'Yv6wS2RcB2iYqs3Fn7kNpGsjSSquY0Xj50uKQxbFar'
+# PARSE_APP_ID = ''
+# PARSE_MASTER_KEY = ''
+# PARSE_REST_KEY = ''
 
 # Parse API Keys (HackFSU-test)
-PARSE_APP_ID = ''
-PARSE_MASTER_KEY = ''
-PARSE_REST_KEY = ''
+# PARSE_APP_ID = ''
+# PARSE_MASTER_KEY = ''
+# PARSE_REST_KEY = ''
 
 # Module dependencies
 Kaiseki = require 'kaiseki'
