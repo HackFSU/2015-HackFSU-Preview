@@ -6,15 +6,23 @@
 extend layout-minimal
 block content
 	.container
-		center
-			img(src='img/logo-old.png')
-			p.
-				Don't call it a comeback.
-				Registration opens New Year's Eve.
-			form.form-horizontal(name='previewEmailSubscribe', method='post', action='/preview/confirmation', role='form')
-				input#email(type='text', class='form-control', name='email', placeholder='youremail@your.uni', value=email)
-				button(type='submit', class='btn btn-primary') Submit!
-			p.
-				Tallahassee, FL &#8226; 30 Hours
+		.video-cont
+			div(id='video-bg')
+				
+				.video-overlay
+					img(src='img/logo-old.png')
+					p.
+						Don't call it a comeback.
+						Registration opens New Year's Eve.
+					form.form-horizontal(name='previewEmailSubscribe', method='post', action='/preview/confirmation', role='form')
+						input#email(type='text', class='form-control', name='email', placeholder='youremail@your.uni', value=email)
+						button(type='submit', class='btn btn-primary') Submit!
+					p(id='footer').
+						Tallahassee, FL &#8226; 30 Hours
+					
+				video(loop, autoplay)
+					source(type='video/mp4', src='res/test.mp4')
+							
+			
 				
 		

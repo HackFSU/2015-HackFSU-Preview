@@ -1,0 +1,105 @@
+#video-bg {
+    position: relative;
+    top: -1px; right: 0; bottom: 0; left: 0;
+    overflow: hidden;
+    clear: both;
+    width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+}
+    /*z-index: -1;*/
+    /*clear: both;
+  }
+/*
+
+  #video-bg > video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  } */
+
+
+
+  /* 1. No object-fit support: */
+  @media (min-aspect-ratio: 16/9) {
+    #video-bg > video { height: 300%; top: -100%; }
+  }
+  @media (max-aspect-ratio: 16/9) {
+    #video-bg > video { width: 300%; left: -100%; }
+  }
+  /* 2. If supporting object-fit, overriding (1): */
+  @supports (object-fit: cover) {
+    #video-bg > video {
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+video {
+  width: 100% !important;
+/*  max-width: 1000px !important;
+*/  height: auto !important;
+}
+
+.info-box {
+  border: 1px solid #FFFFFF;
+  clear: both;
+}
+
+.video-button {
+  border: 2px solid #fff;
+  margin-top: 50px;
+  float: right;
+  color: #fff;
+  font-size: 45px;
+  border-radius: 2px;
+  margin: 25px;
+  z-index: 1005;
+}
+
+.video-button a{
+  text-decoration: none;
+  color: #fff;
+}
+.video-button a:visited {
+  text-decoration: none;
+}
+
+.video-overlay {
+  position: absolute;
+  margin: 200px auto;
+  margin-left: 30%;
+  z-index:1005;
+}
+
+.video-button:hover {
+  color: blue;
+  border-color: blue;
+  pointer-events: none;
+}
+
+.video-button a:hover {
+  color: blue;
+}
+
+li {
+  list-style: none;
+  display: inline;
+}
+
+.video-cont {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+p {
+  color: white;
+}
+

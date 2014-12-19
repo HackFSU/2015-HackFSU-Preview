@@ -44,12 +44,18 @@ module.exports = (app) ->
 							console.log(line)
 						
 						# res.redirect '/users/signin'
+						res.render 'preview/confirmation',
+							title: 'Email Confirmation'
+							pageData:
+								result: result
 				
 			else
 				console.log 'Invalid input'
 				# res.redirect '/users/signin'
+				res.render 'preview/confirmation',
+					title: 'Email Confirmation'
+					pageData:
+						result: result
+
 			
-			res.render 'preview/confirmation',
-				title: 'Email Confirmation'
-				pageData:
-					result: result
+			
