@@ -8,20 +8,26 @@ block content
 	.container
 		.video-cont
 			div(id='video-bg')
-				
+				.video-color
 				.video-overlay
 					img(src='img/logo-old.png')
-					p.
-						Don't call it a comeback.
-						Registration opens New Year's Eve.
-					form.form-horizontal(name='previewEmailSubscribe', method='post', action='/preview/confirmation', role='form')
-						input#email(type='text', class='form-control', name='email', placeholder='youremail@your.uni', value=email)
-						button(type='submit', class='btn btn-primary') Submit!
-					p(id='footer').
-						Tallahassee, FL &#8226; 30 Hours
+					h1
+						a(target='_blank' href='https://www.youtube.com/watch?v=vimZj8HW0Kg') Don't call it a comeback.
+					h1.
+						Registration opens January 2nd.
+					form.video-form(name='previewEmailSubscribe', method='post', action='/preview/confirmation', role='form')
+						input#email(type='text', class='video-input', name='email', autocomplete='off', placeholder='info@hackfsu.com', value=email)
+						button(type='submit', class='video-btn') Get Notified
+
+					
 					
 				video(loop, autoplay)
-					source(type='video/mp4', src='res/test.mp4')
+					source(type='video/mp4', src='res/hackfsu_bg.mp4')
+
+		.foot.
+			Tallahassee, FL &#8226; 30 Hours
+
+
 							
 			
 				
