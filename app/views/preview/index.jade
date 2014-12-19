@@ -15,10 +15,9 @@ block content
 						a(target='_blank' href='https://www.youtube.com/watch?v=vimZj8HW0Kg') Don't call it a comeback.
 					h1.
 						Registration opens January 2nd.
-					form.video-form(name='previewEmailSubscribe', method='post', action='/preview/confirmation', role='form')
+					form.video-form(id='previewEmailSubscribe', action='', role='form')
 						input#email(type='text', class='video-input', name='email', autocomplete='off', placeholder='info@hackfsu.com', value=email)
 						button(type='submit', class='video-btn') Get Notified
-
 					
 					
 				video(loop, autoplay)
@@ -28,7 +27,8 @@ block content
 			Tallahassee, FL &#8226; 30 Hours
 
 
-							
-			
+						
+block localJavascript	
+	script(src='js/parse.js')
 				
 		
