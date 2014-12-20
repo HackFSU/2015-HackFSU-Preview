@@ -11,7 +11,7 @@
 	Notes
 		This must be compiled to .js (alt+shift+c)
  */
-var PARSE_APP_ID, PARSE_JAVASCRIPT_KEY, parseInitialized, submitEmail;
+var PARSE_APP_ID, PARSE_JAVASCRIPT_KEY, parseInitialized, saveFailure, saveSuccess, shake, submitEmail;
 
 PARSE_APP_ID = 'jeoeVa2Nz3VLmrnWpAknbWKZADXHbmQltPSlU8mX';
 
@@ -31,24 +31,65 @@ submitEmail = function(email) {
   prevSub.set('email', email);
   return prevSub.save(null, {
     success: function(gameScore) {
-      alert("Saved Email \'" + email + "\'");
+      saveSuccess();
       return console.log('Save Successful');
     },
     failure: function(gameScore, error) {
-      alert("Oops! There was an error submitting your email. Refresh the page and try again.");
+      saveFailure();
       return console.log('Save Failed. Error: ' + error);
     }
   });
 };
 
 $('#previewEmailSubscribe').submit(function(event) {
-  var $email, isValidEmailInput;
+  var $email, emailVal, isValidEmailInput, re;
   $email = $('#previewEmailSubscribe input[name=email]').val();
-  if ($email.indexOf('@') > -1) {
+  re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  emailVal = re.test($email);
+  console.log($email);
+  if (emailVal) {
     isValidEmailInput = true;
+    $('#submit').text('Saving Email');
     submitEmail($email);
   } else {
-    alert('Please enter a valid email.');
+    shake();
+    $('#email').val('');
+    $('#email').attr('placeholder', 'Invalid Email');
   }
   return event.preventDefault();
 });
+
+shake = function() {
+  var errField;
+  errField = $('#previewEmailSubscribe');
+  errField.addClass('shakeText');
+  return errField.one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+    return errField.removeClass('shakeText');
+  });
+};
+
+saveFailure = function() {
+  var errColor;
+  errColor = '#BF4040';
+  shake();
+  $('#email').css('border-color', errColor);
+  $('#submit').css('border-color', errColor);
+  $('#submit').text('Get Notified');
+  $('#email').val('');
+  return $('#email').attr('placeholder', 'Submitting error. Please refresh.');
+};
+
+saveSuccess = function() {
+  var sub;
+  $('#email').fadeOut(1000, function() {
+    return console.log('faded');
+  });
+  sub = $('#submit');
+  return sub.fadeOut(1000, function() {
+    sub.text('See you soon!');
+    sub.attr('disabled', 'true');
+    sub.removeClass('video-btn');
+    sub.addClass('success-btn');
+    return sub.fadeIn(1000, function() {});
+  });
+};

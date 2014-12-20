@@ -36,24 +36,61 @@ submitEmail = (email) ->
 	prevSub.save null, 
 		success: (gameScore) ->
 			# success
-			alert "Saved Email \'" + email + "\'" #TODO make better
+			saveSuccess()
 			console.log 'Save Successful'
 		,	
 		failure: (gameScore, error) ->
 			# failure
-			alert "Oops! There was an error submitting your email. Refresh the page and try again."
+			saveFailure()
 			console.log 'Save Failed. Error: ' + error
 		
 $('#previewEmailSubscribe').submit (event)->
 	$email = $('#previewEmailSubscribe input[name=email]').val()
-	
-	#run check for valid email Input (super basic bc idgaf)	
-	if $email.indexOf('@') > -1
-		isValidEmailInput = true	
+	#regex email validation
+	re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+	emailVal = re.test($email)
+	console.log($email)
+	if emailVal
+		isValidEmailInput = true
+		$('#submit').text('Saving Email')	
 		submitEmail $email
 	else 
-		alert 'Please enter a valid email.'
-		
+		shake()
+		$('#email').val('')
+		$('#email').attr('placeholder', 'Invalid Email');
+
 	event.preventDefault()
 	
 	
+# visual feedback
+shake = ->
+	errField = $('#previewEmailSubscribe')
+	errField.addClass('shakeText')
+	errField.one 'webkitAnimationEnd oanimationend msAnimationEnd animationend', (e) ->
+		errField.removeClass('shakeText')
+		
+
+saveFailure = ->
+	errColor = '#BF4040'
+	shake()
+	$('#email').css('border-color', errColor)
+	$('#submit').css('border-color', errColor)
+	$('#submit').text('Get Notified')
+	$('#email').val('')
+	$('#email').attr('placeholder', 'Submitting error. Please refresh.');
+
+saveSuccess = ->
+	$('#email').fadeOut(1000, ->
+		console.log('faded')
+		)
+	sub = $('#submit')
+	sub.fadeOut(1000, ->
+		sub.text('See you soon!')
+		sub.attr('disabled', 'true')
+		sub.removeClass('video-btn')
+		sub.addClass('success-btn')
+		sub.fadeIn(1000, ->
+			)
+		)
+
+
