@@ -12,7 +12,7 @@
 
 #video-bg {
     position: absolute;
-    top: 0px; right: 0; bottom: 0; left: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     overflow: hidden;
     clear: both;
     width: 100%;
@@ -23,12 +23,13 @@ body {
   color: rgba(33, 33, 33, 1);
   font-family: 'Uni Sans', sans-serif;
   font-weight: 100;
+  font-size: 16px;
 }
 
 h1 {
   font-family: 'Uni Sans', sans-serif;
   font-weight: 700;
-  font-size: 70px;
+  font-size: 4.3em;
 }
 
 
@@ -54,20 +55,6 @@ a:active {
 a:hover {
   text-decoration: none;
 }
-    /*z-index: -1;*/
-    /*clear: both;
-  }
-/*
-
-  #video-bg > video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  } */
-
-
 
   /* 1. No object-fit support: */
   @media (min-aspect-ratio: 16/9) {
@@ -76,7 +63,7 @@ a:hover {
   @media (max-aspect-ratio: 16/9) {
     #video-bg > video { width: 300%; left: -100%; }
   }
-  /* 2. If supporting object-fit, overriding (1): */
+ /* 2. If supporting object-fit, overriding (1): */
   @supports (object-fit: cover) {
     #video-bg > video {
       top: 0; left: 0;
@@ -84,23 +71,85 @@ a:hover {
       object-fit: cover;
     }
   }
+
+  @media all and (min-width: 1390px){
+    body {
+      font-size: 16px;
+    }
+  }
+
+  @media all and (max-width: 1389px) and (min-width: 1226px){
+    body {
+      font-size: 14px;
+    }
+  }
+
+  @media all and (max-width: 1225px) and (min-width: 955px){
+    body {
+      font-size: 11px;
+    }
+  }
+
+  @media all and (max-width: 954px){
+    body {
+      font-size: 8px;
+    }
+
+    .mobileBG {
+      display: block !important;
+    }
+
+    video {
+      display: none;
+    }
+
+    .foot {
+      width: 65%;
+    }
+
+
+    .video-btn {
+      font-size: 0.7em;
+      width: 30%;
+      position: absolute;
+      right: 1px;
+      margin: 0 !important;
+    }
+
+    .video-btn:hover {
+      font-size: 0.7em;
+      width: 30%;
+      position: absolute;
+      right: 1px;
+    }
+
+    .video-input {
+      min-width: 60%;
+      position: absolute;
+      left: 0;
+    }
+
+  }
+
+.mobileBG {
+  display: none;
+  background: url('../img/bg.jpg') no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+}
   
 video {
-  width: 100% !important;
-/*  max-width: 1000px !important;
-*/  height: auto !important;
-}
-
-.info-box {
-  border: 1px solid #FFFFFF;
-  clear: both;
+  width: 100%;
+  height: auto;
 }
 
 .video-overlay {
   position: absolute;
   text-align: center;
   z-index:1005;
-  width: 70%;
+  width: 85%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -115,7 +164,6 @@ video {
 }
 
 
-
 li {
   list-style: none;
   display: inline;
@@ -128,43 +176,44 @@ li {
 }
 
 .video-form {
-  font-size: 35px;
+  font-size: 2.2em;
 }
 
 .video-input {
-  padding: 10px;
+  padding: 0.6em;
+  padding-bottom: 0.125em;
   background-color: rgba(0, 0, 0, 0);
   width: 50%;
   font-weight: 700;
   border: none;
-  border-bottom: 5px solid rgba(33, 33, 33, 0.9);
+  border-bottom: 0.2em solid rgba(33, 33, 33, 0.9);
   outline: 0;
-  padding-bottom: 2px;
   color: #fff;
 }
 
 .video-btn {
   color: rgba(33, 33, 33, 1);
   background-color: rgba(33, 33, 33, 0);
-  border-radius: 4px;
-  border: 5px solid rgba(33, 33, 33, 0.9);
-  padding: 6px;
-  margin-left: 15px;
+  border-radius: 5px;
+  border: 0.2em solid rgba(33, 33, 33, 0.9);
+  padding: 0.2em;
+  margin-left: 0.99em;
   outline: 0;
   font-weight: bold;
 }
 
 .video-btn:hover {
   cursor: pointer;
-  border: 5px dashed rgba(33, 33, 33, 0.9);
+  border: 0.2em solid rgba(33, 33, 33, 0.7);
+  color: rgba(33, 33, 33, 0.7);
 }
 
 .success-btn {
   color: rgba(33, 33, 33, 1);
   background-color: rgba(0, 0, 0, 0);
-  border-radius: 4px;
-  border: 5px solid rgba(33, 33, 33, 0.9);
-  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+  border: 0.2em solid rgba(33, 33, 33, 0.9);
+  padding: 0.2em;
   font-weight: bold;
 }
 
@@ -179,13 +228,12 @@ p {
 
 .foot {
   bottom: 10px;
-  font-size: 30px;
+  font-size: 1.875em;
   z-index: 1006;
   left: 50%;
   transform: translate(-50%, 0);
   position: absolute;
-  font-size: 30px;
-  color: white;
+  color: #fff;
 
 }
 
