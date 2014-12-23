@@ -10,17 +10,21 @@ block content
 			div(id='video-bg')
 				.video-color
 				.video-overlay
-					img(src='img/logo-old.png')
+					img(src='img/ninetiesFeather.png')
 					h1
 						a(target='_blank' href='https://www.youtube.com/watch?v=vimZj8HW0Kg') Don't call it a comeback.
 					h1.
-						Registration opens January 2nd.
+						Registration opens January 5th.
 
 					div(id='vidForm')
 						form.video-form(id='previewEmailSubscribe', action='', role='form')
 							input#email(spellcheck='off', type='text', class='video-input', name='email', autocomplete='off', placeholder='info@hackfsu.com', value=email)
 							button(type='submit', id='submit', class='video-btn') Get Notified
-					
+							div(style='clear: both')
+
+
+
+
 					
 				video(loop, autoplay)
 					source(type='video/mp4', src='res/hackfsu_bgv2.mp4')

@@ -20,7 +20,7 @@
 
 body {
   margin: 0;
-  color: rgba(33, 33, 33, 1);
+  color: rgba(30, 177, 173, 1);
   font-family: 'Uni Sans', sans-serif;
   font-weight: 100;
   font-size: 16px;
@@ -35,17 +35,17 @@ h1 {
 
  
 h1 a:hover {
-  color: rgba(33, 33, 33, 0.6);
+  color: rgba(30, 177, 173, 0.6);
 }
 
 a:visited {
   text-decoration: none;
-   color: rgba(33, 33, 33, 0.9);
+   color: rgba(30, 177, 173, 0.8);
 }
 
 a:link {
   text-decoration: none;
-   color: rgba(33, 33, 33, 0.9);
+   color: rgba(30, 177, 173, 0.75);
 }
 
 a:active {
@@ -93,7 +93,21 @@ a:hover {
   @media all and (max-width: 954px){
     body {
       font-size: 8px;
+      background: url('../img/westcott.jpg') no-repeat center center fixed; 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
     }
+
+    .video-overlay {
+      top: 42% !important;
+    }
+
+    .foot {
+      font-size: 1.5em !important;
+    }
+
 
     .mobileBG {
       display: block !important;
@@ -103,17 +117,12 @@ a:hover {
       display: none;
     }
 
-    .foot {
-      width: 65%;
-    }
-
-
     .video-btn {
       font-size: 0.7em;
       width: 30%;
       position: absolute;
       right: 1px;
-      margin: 0 !important;
+      bottom: -41px;
     }
 
     .video-btn:hover {
@@ -121,6 +130,14 @@ a:hover {
       width: 30%;
       position: absolute;
       right: 1px;
+    }
+
+    .success-btn {
+      font-size: 0.7em;
+      position: relative;
+      margin: 0 auto;
+      margin-top: 20px;
+      padding: 1px 6px 1px 6px;
     }
 
     .video-input {
@@ -131,13 +148,11 @@ a:hover {
 
   }
 
+
 .mobileBG {
-  display: none;
-  background: url('../img/bg.jpg') no-repeat center center fixed; 
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
+  width: 100%;
+  height: 100%;
+  
 }
   
 video {
@@ -155,12 +170,17 @@ video {
   transform: translate(-50%, -50%);
 }
 
+.video-overlay img {
+  margin-left: -20px;
+  max-width: 30em;
+}
+
 .video-color {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1004;
-  background-color: rgba(255, 153, 51, 0.6);
+  background-color: rgba(79, 96, 132, 0.85);
 }
 
 
@@ -186,16 +206,16 @@ li {
   width: 50%;
   font-weight: 700;
   border: none;
-  border-bottom: 0.2em solid rgba(33, 33, 33, 0.9);
+  border-bottom: 0.2em solid rgba(30, 177, 173, 0.9);
   outline: 0;
   color: #fff;
 }
 
 .video-btn {
-  color: rgba(33, 33, 33, 1);
-  background-color: rgba(33, 33, 33, 0);
+  color: rgba(30, 177, 173, 1);
+  background-color: rgba(79, 96, 132, 0);
   border-radius: 5px;
-  border: 0.2em solid rgba(33, 33, 33, 0.9);
+  border: 0.2em solid rgba(30, 177, 173, 0.9);
   padding: 0.2em;
   margin-left: 0.99em;
   outline: 0;
@@ -204,15 +224,15 @@ li {
 
 .video-btn:hover {
   cursor: pointer;
-  border: 0.2em solid rgba(33, 33, 33, 0.7);
-  color: rgba(33, 33, 33, 0.7);
+  border: 0.2em solid rgba(30, 177, 173, 0.7);
+  color: rgba(30, 177, 173, 0.7);
 }
 
 .success-btn {
-  color: rgba(33, 33, 33, 1);
+  color: rgba(30, 177, 173, 1);
   background-color: rgba(0, 0, 0, 0);
   border-radius: 5px;
-  border: 0.2em solid rgba(33, 33, 33, 0.9);
+  border: 0.2em solid rgba(30, 177, 173, 0.9);
   padding: 0.2em;
   font-weight: bold;
 }
@@ -233,24 +253,26 @@ p {
   left: 50%;
   transform: translate(-50%, 0);
   position: absolute;
-  color: #fff;
+  color: #213060;
+  font-weight: bold;
 
 }
 
+
 ::-webkit-input-placeholder {
-   color: rgba(33, 33, 33, 0.8);
+   color: rgba(30, 177, 173, 0.8);
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: rgba(33, 33, 33, 0.8);  
+   color: rgba(30, 177, 173, 0.8);  
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: rgba(33, 33, 33, 0.8);  
+   color: rgba(30, 177, 173, 0.8);  
 }
 
 :-ms-input-placeholder {  
-   color: rgba(33, 33, 33, 0.8);  
+   color: rgba(30, 177, 173, 0.8);  
 }
 
 :invalid {
