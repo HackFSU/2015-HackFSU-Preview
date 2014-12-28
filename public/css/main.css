@@ -20,7 +20,7 @@
 
 body {
   margin: 0;
-  color: rgba(79, 96, 132, 0.85);
+  color: rgba(255, 255, 255, 0.85);
   font-family: 'Uni Sans', sans-serif;
   font-weight: 100;
   font-size: 16px;
@@ -35,17 +35,17 @@ h1 {
 
  
 h1 a:hover {
-  color: rgba(79, 96, 132, 0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 a:visited {
   text-decoration: none;
-   color: rgba(79, 96, 132, 0.8);
+   color: rgba(255, 255, 255, 0.8);
 }
 
 a:link {
   text-decoration: none;
-   color: rgba(79, 96, 132, 0.75);
+   color: rgba(255, 255, 255, 0.75);
 }
 
 a:active {
@@ -190,7 +190,7 @@ video {
   background-color: #0D1F2D; /*complements teal well*/
   background-color: #C49991; /* complements dark navy */
 
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 
@@ -263,7 +263,7 @@ p {
   left: 50%;
   transform: translate(-50%, 0);
   position: absolute;
-  color: #4f6084;
+  color: rgba(30, 177, 173, 1);
   font-weight: bold;
 
 }
