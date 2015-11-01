@@ -9,7 +9,7 @@
 body {
   margin: 0;
   background-color: #303030;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.8);
   font-family: 'Open Sans', sans-serif;
   font-weight: 100;
   font-size: 16px;
@@ -61,27 +61,32 @@ a:hover {
     }
   }
 
-  @media all and (min-width: 1390px){
+  @media all and (min-width: 1440px){
     body {
       font-size: 16px;
     }
   }
 
-  @media all and (max-width: 1389px) and (min-width: 1226px){
+  @media all and (max-width: 1439px) and (min-width: 1226px){
     body {
       font-size: 14px;
     }
   }
 
-  @media all and (max-width: 1225px) and (min-width: 955px){
+  @media all and (max-width: 1255px) and (min-width: 987px){
     body {
       font-size: 11px;
     }
   }
 
-  @media all and (max-width: 954px){
+  @media all and (max-width: 986px) and (min-width: 751px){
     body {
       font-size: 8px;
+    }
+}
+@media all and (max-width: 750px) {
+    body {
+        font-size: 6px;
     }
 
     .image-bg {
@@ -140,6 +145,8 @@ a:hover {
     }
 
   }
+}
+
 
 
 .mobileBG {
@@ -176,7 +183,7 @@ video {
   z-index: 1004;
   background-color: #303030;
 
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(19, 19, 19, 0.85);
 }
 
 
@@ -217,13 +224,15 @@ li {
   padding: 0;
   margin-left: 1.5em;
   outline: 0;
-  font-weight: bold;
+  font-weight: 600;
+  transition: 200ms all;
 }
 
 .video-btn:hover {
-  cursor: pointer;
-  border: 0.15em solid rgba(255, 255, 255, 0.5);
-  color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    border: 0.15em solid rgba(255, 255, 255, 1);
+    color: #303030;
+    background-color: #fff;
 }
 
 .success-btn {
@@ -245,7 +254,7 @@ p#description-text {
 
 p#be-the-first {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1em;
     text-align: left;
     padding-top: 1em;
